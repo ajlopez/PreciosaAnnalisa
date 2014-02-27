@@ -1,0 +1,23 @@
+[
+    { "dato": "caja", "produce": { "contenedor": "caja" } },
+    { "dato": "sobre", "produce": { "contenedor": "sobre" } },
+    { "dato": "pack", "produce": { "contenedor": "pack" } },
+    
+    { "dato": ["pack", 1], "produce": { "contenedor": "pack", "cantidad": "${Integer}" } },
+    { "dato": [1, "lt"], "produce": { "volumen": "${Integer}", "unidad_volumen": "litro" } },
+    { "dato": [1, "lts"], "produce": { "volumen": "${Integer}", "unidad_volumen": "litro" } },
+    { "dato": [1, "ml"], "produce": { "volumen": "${Integer}", "unidad_volumen": "mililitro" } },
+    { "dato": [1, "cc"], "produce": { "volumen": "${Integer}", "unidad_volumen": "centimetro cubico" } },
+    { "dato": [1, "gr"], "produce": { "peso": "${Integer}", "unidad_peso": "gramo" } },
+    { "dato": [1, "grs"], "produce": { "peso": "${Integer}", "unidad_peso": "gramo" } },
+    { "dato": [1, "kg"], "produce": { "peso": "${Integer}", "unidad_peso": "kilogramo" } },
+    { "dato": [1, "kgs"], "produce": { "peso": "${Integer}", "unidad_peso": "kilogramo" } },
+
+    { "dato": "longaniza", "produce": { "categoria": "Fiambres" } },
+    
+    { "dato": "naranja", "produce": { "sabor": "Naranja" } },
+    { "dato": "manzana", "produce": { "sabor": "Manzana" } },
+    { "dato": "citrus", "produce": { "sabor": "Citrus" } },
+    { "dato": "pomelo", "produce": { "sabor": "Pomelo" } },
+    { "dato": "lima limon", "produce": { "sabor": "Lima Limon" } }
+]
