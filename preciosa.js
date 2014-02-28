@@ -122,6 +122,7 @@ function defineCategoria(nombre, item) {
     nombre = nombre.trim();
     
     var ncategoria = nombre;
+    var original = ncategoria;
     
     ncategoria = ncategoria.replace(/nes /g, "n");
     ncategoria = ncategoria.replace(/des /g, "d");
@@ -131,6 +132,9 @@ function defineCategoria(nombre, item) {
     ncategoria = ncategoria.replace(/s$/g, "");
         
     anna.define(ncategoria, { categoria: item.nombre, categoriaid: item.id });
+    
+    if (original != ncategoria)
+        anna.define(original, { categoria: item.nombre, categoriaid: item.id });
 };
 
 function loadProductos() {
