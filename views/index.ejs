@@ -2,10 +2,46 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/css/style.css' />
+    <script src='/js/jquery.min.js'> </script>
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Bienvenidos a <%= title %></p>
+    <p>Ingrese texto a analizar o buscar en Preciosa Annalisa. 
+    Ver repos 
+    <a href='https://github.com/mgaitan/preciosa'>Preciosa</a>, 
+    <a href='https://github.com/ajlopez/Annalisa'>Annalisa</a>
+    y c&oacute;digo de este sitio en <a href='https://github.com/ajlopez/Annalisa/tree/master/samples/preciosa/server'>https://github.com/ajlopez/Annalisa/tree/master/samples/preciosa/server</a>
+    </p>
+    <p><b>Buscar</b> busca en ciudades, productos, categor&iacute;as, fabricantes, marcas tomados de Preciosa</p>
+    <p><b>Analizar</b> extrae informaci&oacute;n de un texto, como marca, ciudad, peso, categor&iacute;, 
+    seg&uacute;n los datos tomados de Preciosa
+    </p>
+    <p>
+    <input type='text' id='query' size=120 />
+    </p>
+    <p><input type='button' value='Buscar' onclick='buscar();'/><input type='button' value='Analizar' onclick='analizar()'/>
+    <p>
+    <pre id='result'>
+    </pre>
+    </p>
   </body>
+<script language='javascript'>
+
+function analizar() {
+    var query = $('#query').val();
+    $.get('/api/analyze?q=' + query, mostrar);
+}
+
+function buscar() {
+    var query = $('#query').val();
+    $.get('/api/search?q=' + query, mostrar);
+}
+
+function mostrar(data) {
+    $('#result').html(JSON.stringify(data, null, 4));
+}
+
+</script>
 </html>
