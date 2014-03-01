@@ -16,6 +16,7 @@ console.log('Loading data...');
 preciosa.loadMarcasFabricantes();
 preciosa.loadCategorias();
 preciosa.loadProductos();
+preciosa.loadCiudades();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
