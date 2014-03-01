@@ -1,13 +1,13 @@
 {
   "name": "preciosa-annalisa",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "express": "3.4.8",
-    "annalisa": "0.0.3",
+    "annalisa": "0.0.4",
     "ejs": "*"
   }
 }
