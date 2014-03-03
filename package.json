@@ -1,6 +1,7 @@
 {
   "name": "preciosa-annalisa",
-  "version": "0.0.5",
+  "version": "0.0.6",
+  "comment": "loading remote brands",
   "private": true,
   "scripts": {
     "start": "node app.js"

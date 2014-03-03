@@ -13,10 +13,10 @@ var app = express();
 var preciosa = require('./preciosa');
 preciosa.initialize();
 console.log('Loading data...');
-preciosa.loadMarcasFabricantes();
 preciosa.loadCategorias();
 preciosa.loadProductos();
 preciosa.loadCiudades();
+preciosa.loadMarcasFabricantes();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -47,6 +47,15 @@ app.get('/api/search', function (req, res) {
     res.send(preciosa.search(req.param('q')));
 });
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+console.log("Loading remote data...");
+
+preciosa.loadRemoteMarcas(function (err, data) {
+    if (err)
+        console.log(err);
+        
+    preciosa.defineMarcasFabricantes();
+    
+    http.createServer(app).listen(app.get('port'), function(){
+      console.log('Express server listening on port ' + app.get('port'));
+    });
 });

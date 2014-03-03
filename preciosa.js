@@ -1,5 +1,6 @@
 ﻿
 var anna = require('annalisa');
+var http = require('http');
 
 var marcas = [];
 var fabricantes = [];
@@ -16,6 +17,51 @@ function initialize() {
     reglas.forEach(function (regla) {
         anna.define(regla.dato, regla.produce);
     });
+}
+
+function loadRemoteMarcas(cb) {
+    var url = 'http://preciosdeargentina.com.ar/api/v1/marcas/?page=1&format=json&page_size=5000';
+
+    http.get(url, function(res) {
+        var body = '';
+
+        res.on('data', function(chunk) {
+            body += chunk;
+        });
+
+        res.on('end', function() {
+            try {
+                var content = JSON.parse(body);
+                
+                if (content && content.results)
+                    content.results.forEach(function (result) {
+                        if (marcas[result.id]) {
+                            marcas[result.id].nombre = result.nombre;
+                        }
+                        else {
+                            var item = { id: result.id, nombre: result.nombre };
+                            marcas[result.id] = item;
+                        }
+                        
+                        if (result.fabricante && result.fabricante.id) {
+                            marcas[result.id].fabricanteid = result.fabricante.id;
+                            
+                            if (fabricantes[result.fabricante.id])
+                                fabricantes[result.fabricante.id].nombre = result.fabricante.nombre;
+                            else
+                                fabricantes[result.fabricante.id] = { id: result.fabricante.id, nombre: result.fabricante.nombre };
+                        }
+                    });
+            }
+            catch (err) {
+                cb(err, null);
+            };
+            
+            cb(null, null);
+        });
+    }).on('error', function(e) {
+        cb(e, null);
+    });    
 }
 
 function loadMarcasFabricantes() {
@@ -37,10 +83,22 @@ function addFabricante(row) {
     };
     
     fabricantes[item.id] = item;
+}
 
+function defineMarcasFabricantes() {    
+    fabricantes.forEach(function (item) {
+        defineFabricante(item);
+    });
+    
+    marcas.forEach(function (item) {
+        defineMarca(item);
+    });
+}
+
+function defineFabricante(item) {
     var item2 = {
-        id: row.pk,
-        logo: row.fields.logo,
+        id: item.id,
+        logo: item.logo,
         tipo: 'fabricante'
     };
 
@@ -57,10 +115,12 @@ function addMarca(row) {
     };
     
     marcas[item.id] = item;
-    
+}
+
+function defineMarca(item) {   
     var item2 = {
-        id: row.pk,
-        fabricanteid: row.fields.fabricante,
+        id: item.id,
+        fabricanteid: item.fabricanteid,
         tipo: 'marca'
     };
     
@@ -278,6 +338,8 @@ function getProvinciaPais(fullname) {
 module.exports = {
     initialize: initialize,
     loadMarcasFabricantes: loadMarcasFabricantes,
+    loadRemoteMarcas: loadRemoteMarcas,
+    defineMarcasFabricantes: defineMarcasFabricantes,
     loadCategorias: loadCategorias,
     loadProductos: loadProductos,
     loadCiudades: loadCiudades,
@@ -287,6 +349,8 @@ module.exports = {
     getMarca: function (id) { return marcas[id]; },
     getCategoria: function (id) { return categorias[id]; },
     getProducto: function (id) { return productos[id]; },
-    getCiudad: function (id) { return ciudades[id]; }
+    getProductos: function (id) { return productos; },
+    getCiudad: function (id) { return ciudades[id]; },
+    getCiudades: function () { return ciudades; }
 }
 
