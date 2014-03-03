@@ -4,14 +4,24 @@
     { "dato": "pack", "produce": { "contenedor": "pack" } },
     
     { "dato": ["pack", 2], "produce": { "contenedor": "pack", "cantidad": "${Number}" } },
+
     { "dato": [2, "lt"], "produce": { "volumen": "${Number}", "unidad_volumen": "litro" } },
     { "dato": [2, "lts"], "produce": { "volumen": "${Number}", "unidad_volumen": "litro" } },
     { "dato": [2, "ml"], "produce": { "volumen": "${Number}", "unidad_volumen": "mililitro" } },
     { "dato": [2, "cc"], "produce": { "volumen": "${Number}", "unidad_volumen": "centimetro cubico" } },
+
     { "dato": [2, "gr"], "produce": { "peso": "${Number}", "unidad_peso": "gramo" } },
     { "dato": [2, "grs"], "produce": { "peso": "${Number}", "unidad_peso": "gramo" } },
     { "dato": [2, "kg"], "produce": { "peso": "${Number}", "unidad_peso": "kilogramo" } },
     { "dato": [2, "kgs"], "produce": { "peso": "${Number}", "unidad_peso": "kilogramo" } },
+
+    { "dato": [2, "mm"], "produce": { "longitud": "${Number}", "unidad_longitud": "milimetro" } },
+    { "dato": [2, "mms"], "produce": { "longitud": "${Number}", "unidad_longitud": "milimetro" } },
+    { "dato": [2, "cm"], "produce": { "longitud": "${Number}", "unidad_longitud": "centimetro" } },
+    { "dato": [2, "cms"], "produce": { "longitud": "${Number}", "unidad_longitud": "centimetro" } },
+    { "dato": [2, "m"], "produce": { "longitud": "${Number}", "unidad_longitud": "metro" } },
+    { "dato": [2, "mt"], "produce": { "longitud": "${Number}", "unidad_longitud": "metro" } },
+    { "dato": [2, "mts"], "produce": { "longitud": "${Number}", "unidad_longitud": "metro" } },
 
     { "dato": "longaniza", "produce": { "categoria": "Fiambres" } },
     { "dato": "spaghetti", "produce": { "categoria": "Fideos" } },
