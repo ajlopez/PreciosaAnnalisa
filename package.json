@@ -1,14 +1,14 @@
 {
   "name": "preciosa-annalisa",
-  "version": "0.0.6",
-  "comment": "loading remote brands",
+  "version": "0.0.7",
+  "comment": "categories level 3, new annalisa version",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "express": "3.4.8",
-    "annalisa": "0.0.4",
+    "annalisa": "0.0.5",
     "ejs": "*"
   }
 }

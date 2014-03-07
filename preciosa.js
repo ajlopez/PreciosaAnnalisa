@@ -15,7 +15,7 @@ function initialize() {
     var reglas = require('./reglas.json');
 
     reglas.forEach(function (regla) {
-        anna.define(regla.dato, regla.produce);
+        anna.defineRule(regla.dato, regla.produce);
     });
 }
 
@@ -104,7 +104,7 @@ function defineFabricante(item) {
 
     anna.add(item.nombre, item2);
     
-    anna.define(item.nombre, { fabricante: item.nombre, fabricanteid: item.id });
+    anna.defineRule(item.nombre, { fabricante: item.nombre, fabricanteid: item.id });
 }
 
 function addMarca(row) {
@@ -134,7 +134,7 @@ function defineMarca(item) {
     if (item.fabricanteid && fabricantes[item.fabricanteid])
         associtem.fabricante = fabricantes[item.fabricanteid].nombre;
     
-    anna.define(item.nombre, associtem);
+    anna.defineRule(item.nombre, associtem);
 }
 
 function loadCategorias() {
@@ -160,7 +160,9 @@ function addCategoria(row) {
     };
     
     anna.add(item.nombre, item2);
-    defineCategoria(item.nombre, item);
+    
+    if (row.fields.depth == 3)
+        defineCategoria(item.nombre, item);
 }
 
 function defineCategoria(nombre, item) {
@@ -192,10 +194,10 @@ function defineCategoria(nombre, item) {
     ncategoria = ncategoria.replace(/s /g, "");
     ncategoria = ncategoria.replace(/s$/g, "");
         
-    anna.define(ncategoria, { categoria: item.nombre, categoriaid: item.id });
+    anna.defineRule(ncategoria, { categoria: item.nombre, categoriaid: item.id });
     
     if (original != ncategoria)
-        anna.define(original, { categoria: item.nombre, categoriaid: item.id });
+        anna.defineRule(original, { categoria: item.nombre, categoriaid: item.id });
 };
 
 function loadProductos() {
@@ -306,7 +308,7 @@ function addCiudad(row) {
             assocdata[n] = item[n];
     }
     
-    anna.define(item.nombre, assocdata);
+    anna.defineRule(item.nombre, assocdata);
 }
 
 function getProvinciaPais(fullname) {
