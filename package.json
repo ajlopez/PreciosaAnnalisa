@@ -1,7 +1,7 @@
 {
   "name": "preciosa-annalisa",
-  "version": "0.0.7",
-  "comment": "categories level 3, new annalisa version",
+  "version": "0.0.8",
+  "comment": "new units in rules",
   "private": true,
   "scripts": {
     "start": "node app.js"
