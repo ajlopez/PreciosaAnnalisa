@@ -31,6 +31,7 @@
     { "dato": [2, "un"], "produce": { "unidades": "${Number}", "unidad": "unidad" } },
     { "dato": [2, "ud"], "produce": { "unidades": "${Number}", "unidad": "unidad" } },
     { "dato": [2, "und"], "produce": { "unidades": "${Number}", "unidad": "unidad" } },
+    { "dato": [2, "unid"], "produce": { "unidades": "${Number}", "unidad": "unidad" } },
 
     { "dato": "longaniza", "produce": { "categoria": "Fiambres" } },
     { "dato": "spaghetti", "produce": { "categoria": "Fideos" } },
