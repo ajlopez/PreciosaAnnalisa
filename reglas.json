@@ -23,6 +23,15 @@
     { "dato": [2, "mt"], "produce": { "longitud": "${Number}", "unidad_longitud": "metro" } },
     { "dato": [2, "mts"], "produce": { "longitud": "${Number}", "unidad_longitud": "metro" } },
 
+    { "dato": [2, "m2"], "produce": { "area": "${Number}", "unidad_area": "metro cuadrado" } },
+    { "dato": [2, "mt2"], "produce": { "area": "${Number}", "unidad_area": "metro cuadrado" } },
+    { "dato": [2, "mts2"], "produce": { "area": "${Number}", "unidad_area": "metro cuadrado" } },
+
+    { "dato": [2, "u"], "produce": { "unidades": "${Number}", "unidad": "unidad" } },
+    { "dato": [2, "un"], "produce": { "unidades": "${Number}", "unidad": "unidad" } },
+    { "dato": [2, "ud"], "produce": { "unidades": "${Number}", "unidad": "unidad" } },
+    { "dato": [2, "und"], "produce": { "unidades": "${Number}", "unidad": "unidad" } },
+
     { "dato": "longaniza", "produce": { "categoria": "Fiambres" } },
     { "dato": "spaghetti", "produce": { "categoria": "Fideos" } },
     { "dato": "spaguetti", "produce": { "categoria": "Fideos" } },
