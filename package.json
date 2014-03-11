@@ -1,14 +1,14 @@
 {
   "name": "preciosa-annalisa",
-  "version": "0.0.8",
-  "comment": "new units in rules",
+  "version": "0.0.9",
+  "comment": "new rules in preciosa",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "express": "3.4.8",
-    "annalisa": "0.0.5",
+    "annalisa": "0.0.6",
     "ejs": "*"
   }
 }

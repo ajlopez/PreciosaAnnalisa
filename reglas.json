@@ -33,6 +33,10 @@
     { "dato": [2, "und"], "produce": { "unidades": "${Number}", "unidad": "unidad" } },
     { "dato": [2, "unid"], "produce": { "unidades": "${Number}", "unidad": "unidad" } },
 
+    { "dato": [2, "w"], "produce": { "potencia": "${Number}", "unidad_potencia": "watt" } },
+    { "dato": [2, "wt"], "produce": { "potencia": "${Number}", "unidad_potencia": "watt" } },
+    { "dato": [2, "wts"], "produce": { "potencia": "${Number}", "unidad_potencia": "watt" } },
+
     { "dato": "longaniza", "produce": { "categoria": "Fiambres" } },
     { "dato": "spaghetti", "produce": { "categoria": "Fideos" } },
     { "dato": "spaguetti", "produce": { "categoria": "Fideos" } },
